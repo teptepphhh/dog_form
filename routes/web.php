@@ -6,4 +6,8 @@ Route::get('/', function () {
     return view('pages/main');
 });
 
-Route::get('/fetch_dog', [App\Http\Controllers\DogController::class, 'produce_image'])->name('produce_image');
+// Fetch the list of dog breeds from the DogController
+Route::get('/breeds', [App\Http\Controllers\DogController::class, 'list_breeds'])->name('list_breeds');
+
+// Fetch a random image for a selected breed from the DogController
+Route::post('/fetch_dog', [App\Http\Controllers\DogController::class, 'produce_image'])->name('produce_image');
